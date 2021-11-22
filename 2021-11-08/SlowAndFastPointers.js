@@ -53,19 +53,38 @@ function dualSpeed(arr) {
     let segSize = 1;
 
     while (segSize <= arr.length) {
-        if (segSize === arr.length) break;
+        if (segSize === arr.length) return -1;
 
         while (P2 < arr.length) {
 
             // iterate through subarray to try to find whether arr[P1] >= anything in the subarray
             // iterate until end of subarray or you reach the limit of segSize
+            
+            let status = true;
             for (let i = P2; i < arr.length && i < P2 + segSize; i++) {
 
+                // if it is "bad", reset and try again
+                if (arr[P1] < arr[i]) {
+                    status = false
+                    break;
+                }
             }
-        }
+            // if we go through entire subarray w/o hitting if statement, it is good and we continue;
 
+            if (!status) {
+                segSize++;
+                P1 = 0;
+                P2 = 1;
+                break;
+            }
+
+            P1++;
+            P2 += segSize;
+
+        }
+        if (P2 >= arr.length) break;
     }
 
-    return -1;
+    return segSize;
 
 }
