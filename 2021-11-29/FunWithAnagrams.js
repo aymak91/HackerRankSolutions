@@ -44,5 +44,5 @@ function funWithAnagrams(text) {
     return text.filter(word => word !== '').sort();
 }
 
-// Time: O(n*m*log(m)) where n = length of text array and m = length of longest word
+// Time: O(n*log(n)*m*log(m)) where n = length of text array and m = length of longest word
 // Space: O(n) where n = length of text array
