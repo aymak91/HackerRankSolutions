@@ -30,12 +30,10 @@ function getMergedIntervals(intervals) {
     
     for (let i=1; i<intervals.length; i++) {
         const lastIntervalIdx = outputArr.length-1;
-        const lastRightBound = outputArr[lastIntervalIdx][1] // 11
-        const leftBound = intervals[i][0]; //7
-        const rightBound = intervals[i][1]; // 7
+        const lastRightBound = outputArr[lastIntervalIdx][1];
+        const leftBound = intervals[i][0]; 
+        const rightBound = intervals[i][1]; 
 
-        // [[1,2], [2,3], [6,11], [7,7]]
-        // output = [[1,3], [6,11], [12, 18]]
         if (leftBound <= lastRightBound && rightBound > lastRightBound) outputArr[lastIntervalIdx][1] = rightBound;
         if (leftBound <= lastRightBound && rightBound <= lastRightBound) continue;
         if (leftBound > lastRightBound) outputArr.push(intervals[i]);
