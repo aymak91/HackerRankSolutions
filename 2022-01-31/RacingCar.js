@@ -33,6 +33,19 @@
  * The function accepts INTEGER_ARRAY obstacleLanes as parameter.
  */
 
+// Test cases: 
+//     Case 1: obstableLane = [2, 3, 2, 1, 3, 1]
+//     Output: 2
+    
+//     Case 2: obstableLane = [2, 1, 3, 3, 3, 1]
+//     Output: 2
+
+//     Case 3: obstableLane = [3, 2, 2, 1, 2, 1]
+//     Output: 1
+
+//     Case 4: obstableLane = [1, 3, 1, 1, 2, 3, 2, 2, 2, 2, 3, 2, 2, 3, 3, 2, 3, 2, 2, 3, 1, 1, 3, 2, 3, 1, 1, 1, 2, 1, 2, 3, 2, 1, 2, 1, 3, 2, 3, 3, 3, 1, 2, 2, 1, 1, 2, 1, 3, 2, 1, 3, 3, 2, 3, 3, 1, 3, 1, 2, 3, 1]
+//     Output: 14
+
 function minimumMovement(obstacleLanes) {
     // 2,1,3,2
     // [
