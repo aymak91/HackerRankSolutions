@@ -30,8 +30,8 @@
 //    int: the length of the longest gap between cars.
 
 // Constraints
-// 1 ≤ n ≤ 109
-// 1 ≤ m ≤ 105
+// 1 ≤ n ≤ 10^9
+// 1 ≤ m ≤ 10^5
 // 1 ≤ start[i] ≤ finish[i] ≤ n, where 0 ≤ i < m.
  
 /*
