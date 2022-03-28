@@ -33,14 +33,17 @@ function getMergedIntervals(intervals) {
     }
     
     for (let i=1; i<intervals.length; i++) {
+        const currentInterval = {
+            start: intervals[i][0],
+            end: intervals[i][1],
+        }
         const lastIntervalIdx = outputArr.length-1;
-        const lastRightBound = outputArr[lastIntervalIdx][1];
-        const leftBound = intervals[i][0]; 
-        const rightBound = intervals[i][1]; 
+        lastInterval.start = outputArr[lastIntervalIdx][0];
+        lastInterval.end = outputArr[lastIntervalIdx][1];
 
-        if (leftBound <= lastRightBound && rightBound > lastRightBound) outputArr[lastIntervalIdx][1] = rightBound;
-        if (leftBound <= lastRightBound && rightBound <= lastRightBound) continue;
-        if (leftBound > lastRightBound) outputArr.push(intervals[i]);
+        if (currentInterval.start <= lastInterval.end && currentInterval.end > lastInterval.end) outputArr[lastIntervalIdx][1] = currentInterval.end;
+        if (currentInterval.start <= lastInterval.end && currentInterval.end <= lastInterval.end) continue;
+        if (currentInterval.start > lastInterval.end) outputArr.push(intervals[i]);
        
     }
     return outputArr;
@@ -75,4 +78,20 @@ let getMergedIntervals = function(intervals) {
     res.push([currInterval.start, currInterval.end]);
 
     return res;
+}
+
+const getMergedIntervals = (intervals)=>{
+	let merged = [];
+	for(let i=0; i< intervals.length - 1; i++) {
+        let end = intervals[i][1]; //2
+    	let start = intervals[i+1][0];//2
+        if(end >= start){ //2===2
+            if(end > intervals[i+1][1]){ // 2 > 3
+                merged.push([intervals[i][0], end])
+            }else{
+            merged.push([intervals[i][0], intervals[i+1][1]]) //[1, ]
+            }
+        }
+    }
+	return merged;
 }
