@@ -22,6 +22,13 @@
 // 1 ≤ length of s ≤ 10^5
 // The string s consists of lowercase English letters only.
 
+/*
+ * Complete the 'getUniqueCharacter' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts STRING s as parameter.
+ */
+
 function getUniqueCharacter(s) {
     // Write your code here
     let counter = {};

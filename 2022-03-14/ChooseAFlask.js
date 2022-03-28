@@ -53,9 +53,19 @@
 // 1 ≤ n ≤ 10^5
 // 1 ≤ flaskTypes ≤ 10^4
 // 1 ≤ totalMarks ≤ 10^5
-// 1 ≤ requirements[i] ≤ 109 (where 0 ≤ i < n)
+// 1 ≤ requirements[i] ≤ 10^9 (where 0 ≤ i < n)
 // 0 ≤ markings[i][0] < flaskTypes (where 0 ≤ i < total_marks)
-// 0 ≤ markings[i][1] ≤ 109 (where 0 ≤ i < total_marks)
+// 0 ≤ markings[i][1] ≤ 10^9 (where 0 ≤ i < total_marks)
+
+/*
+ * Complete the 'chooseFlask' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts following parameters:
+ *  1. INTEGER_ARRAY requirements
+ *  2. INTEGER flaskTypes
+ *  3. 2D_INTEGER_ARRAY markings
+ */
 
 function chooseFlask(requirements, flaskTypes, markings) {
     requirements = requirements.sort((a, b) => a - b)
