@@ -62,3 +62,6 @@ function getUmbrellas(requirement, sizes) {
     if (dp[requirement] != Infinity) return dp[requirement] ;
     return -1;
 }
+
+// Similar problem:
+// https://leetcode.com/problems/coin-change/
