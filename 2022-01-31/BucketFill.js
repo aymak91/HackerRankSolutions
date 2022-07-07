@@ -50,7 +50,7 @@ function color(row, col, letter, visited, matrix) {
     let squares = [[row, col]];
 
     while (squares.length) {
-        let node = squares.shift();
+        let node = squares.pop();
         let x = node[0];
         let y = node[1];
         visited[x][y] = true;
@@ -60,13 +60,13 @@ function color(row, col, letter, visited, matrix) {
 }
 
 function getNeighbors(row, col, letter, visited, matrix) {
-    let dirs = [[1, 0], [0, 1], [-1, 0], [0, -1]];
+    const directions = [[1, 0], [0, 1], [-1, 0], [0, -1]];
     let neighbors = [];
 
-    for (let i = 0; i < dirs.length; i++) {
-        let newX = row + dirs[i][0];
-        let newY = col + dirs[i][1];
-        if (newX >= 0 && newX < matrix.length && newY >= 0 && newY < matrix[0].length) {
+    for (let dir of directions) {
+        let newX = row + dir[0];
+        let newY = col + dir[1];
+        if (inBounds(newX, newY, matrix)) {
             if (!visited[newX][newY]) {
                 if (matrix[newX][newY] === letter) {
                     neighbors.push([newX, newY]);
@@ -78,6 +78,10 @@ function getNeighbors(row, col, letter, visited, matrix) {
     }
 
     return neighbors;
+}
 
-
+function inBounds(row, col, matrix) {
+    const rowInBounds = row >= 0 && row < matrix.length;
+    const colInBounds = col >= 0 && col < matrix[0].length;
+    return rowInBounds && colInBounds;
 }
