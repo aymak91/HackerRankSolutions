@@ -42,6 +42,8 @@
  *  2. INTEGER_ARRAY sizes
  */
 
+
+// Tabulation
 function getUmbrellas(requirement, sizes) {
     // Write your code here
 
@@ -62,3 +64,23 @@ function getUmbrellas(requirement, sizes) {
     if (dp[requirement] != Infinity) return dp[requirement] ;
     return -1;
 }
+
+// Memoization - recursive
+const getUmbrellas = function (amount, sizes) {
+    const answer = _minChange(amount, sizes);
+    return answer === Infinity ? -1 : answer;
+  };
+  
+  const _minChange = function (requirement, sizes, memo = {}) {
+    if (requirement < 0) return Infinity;
+    if (requirement === 0) return 0;
+    if (requirement in memo) return memo[requirement];
+    let min = Infinity;
+      
+    for (let coin of sizes) {
+      const numUmbrellas = 1 + _minChange(requirement - coin, sizes, memo);
+      min = Math.min(numUmbrellas, min);
+    }
+    return memo[requirement] = min;
+  };
+  
