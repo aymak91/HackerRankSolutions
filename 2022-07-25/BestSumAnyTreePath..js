@@ -20,3 +20,13 @@
 // 0 ≤ parent[i] < n for 1 ≤ i < n
 // -1000 ≤ values[i] ≤ 1000 
 // the parent array defines a valid tree
+
+/*
+ * Complete the 'bestSumAnyTreePath' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts following parameters:
+ *  1. INTEGER_ARRAY parent
+ *  2. INTEGER_ARRAY values
+ */
+
