@@ -30,3 +30,41 @@
  *  2. INTEGER_ARRAY values
  */
 
+function bestSumAnyTreePath(parent, values) {
+    // Write your code here
+    let maxPath = -1001; 
+
+    
+    const children = {};
+    parent.forEach((p,child) =>{
+        children[p] = children[p] || [];
+        children[p].push(child);
+    });
+   
+   const processBenefits = benefitArr => {
+       let firstMax = 0;
+       let secondMax = 0;
+       benefitArr.forEach(benefit => {
+           if(benefit > firstMax){
+               secondMax = firstMax;
+               firstMax = benefit;
+           } else if(benefit > secondMax){
+               secondMax = benefit;
+           }
+       });
+       return [firstMax, secondMax];
+   };
+   
+   const maxBenefit = root => {
+       const rootChildren = children[root] || [];
+       const benefits = rootChildren.map(child => maxBenefit(child));
+       const [firstMax, secondMax] = processBenefits(benefits)
+       const currentMaxPath = values[root] + firstMax + secondMax;
+       
+       if(currentMaxPath > maxPath) maxPath = currentMaxPath;
+       return  values[root] + firstMax;
+   }
+   
+   maxBenefit(0);
+   return maxPath;
+}
