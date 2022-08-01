@@ -37,6 +37,7 @@ function playlist(songs) {
     const counter = {} // {10: 1, 50: 1, 30:1]
     let pairs = 0
     songs.forEach(song => { 
+        // modulo takes care of edge case where song is 0
         const diff = (60 - song) % 60
         if (counter[diff]) pairs += counter[diff]
         if (!counter[song]) counter[song] = 0
