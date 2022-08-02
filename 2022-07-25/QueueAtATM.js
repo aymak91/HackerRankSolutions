@@ -80,7 +80,7 @@ function getFinalOrder(k, amount) {
 
 }
 
-// O(n) where n is amount.length, passes all cases
+// O(nlogn) due to sorting where n is amount.length, passes all cases
 function getFinalOrder(k, amount) {
     // Write your code here
     
