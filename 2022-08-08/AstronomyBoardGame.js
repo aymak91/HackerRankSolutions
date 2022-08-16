@@ -23,7 +23,6 @@
 function getPlanetToDestroy(planets) {
     // Write your code here
     
-    // let stable = true;
     let evenSum = 0;
     let oddSum = 0;
     
@@ -32,9 +31,7 @@ function getPlanetToDestroy(planets) {
         if (i%2 === 0) evenSum += planet;
         else oddSum += planet;
     }
-    
-    const difference = evenSum - oddSum;
-    
+        
     let evenSum2 = 0;
     let oddSum2 = 0;
     
