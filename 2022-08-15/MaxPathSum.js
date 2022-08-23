@@ -44,6 +44,16 @@
 // 0 < board[i][j] < 501.
 // 0 ≤ p, q ≤ m − 1
 
+/*
+ * Complete the 'maxPathSum' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts following parameters:
+ *  1. 2D_INTEGER_ARRAY board
+ *  2. INTEGER p
+ *  3. INTEGER q
+*/
+
 function maxPathSum(board, p, q) {
     // Write your code here
     return Math.max(maxPathDFS(board, 0, p, 1), maxPathDFS(board, board.length-1, q, -1))
