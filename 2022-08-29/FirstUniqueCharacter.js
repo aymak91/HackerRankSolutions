@@ -31,21 +31,19 @@
 
 function getUniqueCharacter(s) {
     // Write your code here
-    let counter = {};
+
+    let charCount = {};
     
-    for (const char of s) {
-        if (!counter[char]) counter[char] = 0;
-        counter[char]++;
+    for (let char of s) {
+        if (charCount[char] === undefined) charCount[char] = 0;
+        charCount[char]++;
     }
-
-    let unique = new Set();
-    Object.keys(counter).forEach(key => {
-        if (counter[key] === 1) unique.add(key);
-    })
-
-    for (let i = 0; i < s.length; i++) {
-        if (unique.has(s[i])) return i + 1;
+    
+    for (let i = 0; i<s.length; i++) {
+        const char = s[i];
+        if (charCount[char] === 1) return i+1;
     }
-    return -1
+    
+    return -1;
 }
 
