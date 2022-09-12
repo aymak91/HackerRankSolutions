@@ -59,4 +59,3 @@ function getMinimumOperations(arr) {
     return splits;
 
 }
-
