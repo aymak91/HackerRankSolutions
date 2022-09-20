@@ -126,4 +126,4 @@ const inBound = (i, arr) => i >= 0 && i < arr.length;
     return -1;
 };
 
-// Time Complexity: O(n*logn + qlogn)
+// Time Complexity: O(n*logn + q*logn)
