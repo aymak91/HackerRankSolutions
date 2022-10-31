@@ -55,7 +55,6 @@
  *
  */
 
-// Note: This solution was created by Vivian Thach.
 
 function createLinkedList(head) {
     // Write your code here
@@ -71,13 +70,10 @@ function createLinkedList(head) {
         // loop through old LL until reach end (oldCurr is always the odd node to add to new LL)
         while (oldCurr) {
             // if there is a prev, update the old LL's prev.next to point to the oldCurr.next,
-            // basically removing the oldCurr node while maintaining order of old LL
-            if (oldPrev) { 
-                oldPrev.next = oldCurr.next;  
-            }
+            if (oldPrev) oldPrev.next = oldCurr.next;  
             
-            // set new LL's curr.next ot be a new node of that oldCurr's value
-            newCurr.next = new SinglyLinkedListNode(oldCurr.data);
+            // set new LL's curr.next ot be oldCurr
+            newCurr.next = oldCurr;
             // update newCurr's pointer
             newCurr = newCurr.next;
             
