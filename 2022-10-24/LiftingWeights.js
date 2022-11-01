@@ -48,6 +48,5 @@ function weightCapacity(weights, maxCapacity) {
         let option2 = helper(prevWeight, i + 1);
         memo[key] = Math.max(option1, option2);
         return memo[key];
-        return Math.max(option1, option2);
     }
 }
