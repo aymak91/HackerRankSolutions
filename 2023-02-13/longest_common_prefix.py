@@ -11,7 +11,7 @@ def longestCommonPrefix(strs) -> str:
     
 # no zip version
 from collections import defaultdict as ddict
-def longestCommonPrefix(strs) -> str:
+def longest_common_prefix(strs) -> str:
     if len(strs) == 0:
         return ''
     if len(strs) == 1:
