@@ -1,12 +1,22 @@
-def maxArea(height):
-    max_water = float('-inf')
-    left, right = 0, len(height)-1
-    for i in range(len(height)-1, 0, -1):
-        if height[left] < height[right]:
-            shortest_wall = height[left]
-            left += 1
+from heapq import heappush, heappop
+def findRelativeRanks(score):
+    heap = list()
+    ranks = {
+        1: 'Gold Medal',
+        2: 'Silver Medal',
+        3: 'Bronze Medal'
+    }
+    rank = 1
+
+    for idx, num in enumerate(score):
+        heappush(heap, (-num, idx))
+
+    for _ in range(len(score)):
+        num, idx = heappop(heap)
+        if rank in ranks:
+            score[idx] = ranks[rank]
         else:
-            shortest_wall = height[right]
-            right -= 1
-        max_water = max(max_water, shortest_wall * i)
-    return max_water
+            score[idx] = str(rank)
+        rank += 1
+
+    return score
